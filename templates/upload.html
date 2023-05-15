@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block title %}Import Test Dataset{% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group mb-3">
+                <label class="form-label" for="n">Search File</label>
+                <input class="form-control" id="n" name="file" type="file" />
+            </div>
+            <input type="submit" class="btn btn-primary" value="Import" />
+        </form>
+        <div style="height:60vh; overflow:auto">
+          {% if score > 0 %}
+          <p>F1 Score for Random Forest Model = {{score}}</p>
+          <div class="table">
+            {{table|safe}}
+          </div>
+          {% else %}
+          <p>No results to display</p>
+          {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
